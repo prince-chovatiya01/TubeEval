@@ -241,44 +241,44 @@ TubeNet acts as a denoising autoencoder: by fusing LLM statistics with BERT sema
 ```
 BMP_Project/
 │
+├── bmp_results_A/ # Output figures and results for Condition A
+│ ├── fig1_main.png
+│ ├── fig2_per_dim.png
+│ ├── fig3_diagnostics.png
+│ ├── fig4_loss_curves.png
+│ └── results_A.json
+│
 ├── data/
-│   └── model_annotations.aligned/
-│       └── paired/
-│           └── model_annotations.aligned.paired.jsonl   # SummEval benchmark data
+│ └── model_annotations.aligned/
+│ └── paired/
+│ └── model_annotations.aligned.paired.jsonl
 │
 ├── data_processing/
-│   └── pair_data.py              # Pair summaries with CNN/DailyMail source articles
+│ └── pair_data.py # Pair summaries with CNN/DailyMail source articles
 │
 ├── evaluation/
-│   └── summ_eval/                # SummEval evaluation toolkit (Fabbri et al., 2021)
-│       ├── bert_score_metric.py
-│       ├── rouge_metric.py
-│       └── ...                   # Other NLG metrics
+│ └── summ_eval/ # SummEval evaluation toolkit (Fabbri et al., 2021)
+│ ├── bert_score_metric.py
+│ ├── rouge_metric.py
+│ └── ...
 │
-├── bmp_results_A/                # Output figures and results for Condition A
-│   ├── fig1_main.png
-│   ├── fig2_per_dim.png
-│   ├── fig3_diagnostics.png
-│   ├── fig4_loss_curves.png
-│   └── results_A.json
+├── experiments/
+│ ├── main2.py # Core shared utilities / early prototype
+│ ├── main_v2_a.py # Experiment: Condition A (BERT-only baseline)
+│ ├── main_v2_c1.py # Experiment: Condition C1 (raw repeated scores)
+│ ├── main_v2_c2.py # Experiment: Condition C2 (engineered stats) ★
+│ ├── main_v2_c2_cqr.py # C2 + CQR conformal wrapper
+│ ├── main_v2_c2_asym_cqr.py # C2 + Asymmetric CQR
+│ ├── main_v2_c2_chr.py # C2 + CHR (histogram-based)
+│ ├── main_v2_c2_lvd.py # C2 + Locally-Weighted CP
+│ ├── main_v2_c2_boosted_cqr.py # C2 + Boosted CQR ★ (best overall)
+│ ├── main_v2_c2_boosted_lcp.py # C2 + Boosted LCP
+│ └── main_v2_c2_r2ccp.py # C2 + R2CCP
 │
-├── main2.py                      # Core shared utilities / early prototype
-├── main_v2_a.py                  # Experiment: Condition A (BERT-only baseline)
-├── main_v2_c1.py                 # Experiment: Condition C1 (raw repeated scores)
-├── main_v2_c2.py                 # Experiment: Condition C2 (engineered stats) ★
-├── main_v2_c2_cqr.py             # C2 + CQR conformal wrapper
-├── main_v2_c2_asym_cqr.py       # C2 + Asymmetric CQR
-├── main_v2_c2_chr.py             # C2 + CHR (histogram-based)
-├── main_v2_c2_lvd.py             # C2 + Locally-Weighted CP
-├── main_v2_c2_boosted_cqr.py    # C2 + Boosted CQR ★ (best overall)
-├── main_v2_c2_boosted_lcp.py    # C2 + Boosted LCP
-├── main_v2_c2_r2ccp.py          # C2 + R2CCP
-│
-├── assets/
-│   ├── logo-lily.png
-│   └── logo-salesforce.svg
-│
-└── README.md
+├── LICENSE
+├── Presentation.pdf
+├── README.md
+└── Report.pdf
 ```
 
 ---
